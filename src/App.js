@@ -10,7 +10,7 @@ function App() {
       <div className='contentBox'>
         <div className='contendBox-left'>
           <div className='sayHello'>
-            Hello Leon <br />
+            <div style={{ fontWeight: 800, fontSize: '30px' }}>Hello Leon</div> <br />
             Welcome to the fitness app
           </div>
           <div className='contendBox-left-subTop'>
