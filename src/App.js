@@ -1,18 +1,19 @@
 import './App.less';
 import Sidebar from './components/sidebar'
+import SayHello from './components/sayHello'
+import { useEffect, useState } from 'react';
 
 function App() {
+  const [page, setPage] = useState('home')
+  useEffect(() => {
+    console.log('page', page);
+  }, [page])
   return (
     <div className="App">
-      <div className='sidebar'>
-
-      </div>
-      <div className='contentBox'>
+      <Sidebar setPage={setPage} />
+      {page == 'home' && <div className='contentBox'>
         <div className='contendBox-left'>
-          <div className='sayHello'>
-            <div style={{ fontWeight: 800, fontSize: '30px' }}>Hello Leon</div> <br />
-            Welcome to the fitness app
-          </div>
+          <SayHello />
           <div className='contendBox-left-subTop'>
             <div className='contacts'></div>
             <div className='statistic'></div>
@@ -23,7 +24,7 @@ function App() {
           </div>
         </div>
         <div className='contendBox-right'></div>
-      </div>
+      </div>}
     </div>
   );
 }
