@@ -1,0 +1,59 @@
+@darkBlockBackgroundColor: #1d1d1d;
+@lightDashboardBackgroundColor: #f3f3f3;
+
+@lightBlockBackgroundColor: #ffffff;
+
+@darkTextColor: #e7e7e7;
+@darkTextColorforcomment: #747474;
+@lightTextColor: #313131;
+
+@darkHtmlBackgroundColor: #171717;
+@lightHtmlBackgroundColor: #ffffff;
+
+@darkBackgroundColor: #0c0f0e;
+@lightBackgroundColor: #ffffff;
+
+.card {
+    height: 100%;
+    display: flex;
+
+    .cardLeft {
+        width: 50%;
+        height: 100%;
+        position: relative;
+        padding-left: 10%;
+
+        .title {
+            position: absolute;
+            top: 5%;
+            color: @darkTextColorforcomment;
+        }
+
+        .number {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-weight: 800;
+            font-size: 30px;
+        }
+
+        .percentage {
+            position: absolute;
+            bottom: 5%;
+            font-size: 12px;
+        }
+    }
+
+    .cardRight {
+        position: relative;
+        width: 50%;
+        height: 100%;
+
+        .diagram {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+}

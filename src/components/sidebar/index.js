@@ -8,12 +8,12 @@ import {
     AntDesignOutlined,
     SoundTwoTone
 } from '@ant-design/icons';
-import { Avatar, Popover, ConfigProvider } from 'antd';
+import { Avatar, Popover, ConfigProvider, Button, Switch } from 'antd';
 import WORDS from '../../constant/words'
 import Emoji from 'react-emojis';
 import './index.less'
 export default function Index(props) {
-    const { theme, setPage } = props
+    const { theme, setPage, setCurrenttheme } = props
     const [clicked, setClicked] = useState(false);
     const [selectPage, setSelectPage] = useState('home');
     const navRef = useRef(null);
@@ -80,15 +80,16 @@ export default function Index(props) {
                     <Popover
                         content={
                             <div>
-                                clickContent
-                                <a onClick={hide}>Close</a>
+                                Light mode <Switch onChange={(checked) => setCurrenttheme(checked ? 'dark' : 'light')}></Switch>
+                                <br /><a onClick={hide}>Close</a>
                             </div>
                         }
                         placement="rightBottom"
-                        title="Click title"
+                        title="Quick Setting"
                         trigger="click"
                         open={clicked}
                         onOpenChange={handleClickChange}
+                        style={{}}
                     >
                         <Avatar
                             size={{
