@@ -1,6 +1,7 @@
 @darkTextColor: #949494;
 @lightTextColor: #9b999b;
 @darkNavHoverColor: #383838;
+@lightNavHoverColor: #f0f0f0;
 
 
 .sidebar {
@@ -9,7 +10,6 @@
     .content {
         height: 100%;
         width: 100%;
-        // background-color: #fff;
         position: relative;
 
         .logo {
@@ -18,6 +18,7 @@
             left: 50%;
             transform: translateX(-50%);
             color: @darkTextColor;
+            font-weight: 600;
         }
 
         .logo-light {
@@ -25,7 +26,6 @@
         }
 
         .navigationBar {
-            // background-color: aqua;
             width: 70%;
             position: absolute;
             top: 50%;
@@ -58,6 +58,12 @@
                 .navigationName {
                     margin-left: 10px;
                     font-weight: 100;
+                }
+            }
+
+            .navigation-light {
+                &:hover {
+                    background-color: @lightNavHoverColor;
                 }
             }
         }
