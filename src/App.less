@@ -1,6 +1,13 @@
-@darkBackgroundColor: #0c0f0e;
 @darkBlockBackgroundColor: #1d1d1d;
+@lightBlockBackgroundColor: #ffffff;
+
 @darkTextColor: #e7e7e7;
+@darkHtmlBackgroundColor: #171717;
+@lightHtmlBackgroundColor: #f3f3f3;
+@darkBackgroundColor: #0c0f0e;
+@lightBackgroundColor: #ffffff;
+@darkTextColor: #e7e7e7;
+@lightTextColor: #e7e7e7;
 
 .App {
     min-width: 930px;
@@ -24,6 +31,10 @@
         transform: translateY(-50%);
         left: 1%;
         border-radius: 16px;
+    }
+
+    .sidebar-light {
+        background-color: @lightBlockBackgroundColor;
     }
 
     .contentBox {
@@ -129,3 +140,5 @@
         }
     }
 }
+
+.App-light {}
