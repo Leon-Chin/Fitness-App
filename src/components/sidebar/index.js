@@ -8,7 +8,7 @@ import {
     AntDesignOutlined,
     SoundTwoTone
 } from '@ant-design/icons';
-import { Avatar, Popover, ConfigProvider, Button, Switch } from 'antd';
+import { Avatar, Popover, Switch } from 'antd';
 import WORDS from '../../constant/words'
 import Emoji from 'react-emojis';
 import './index.less'
@@ -61,7 +61,7 @@ export default function Index(props) {
                     </div>
                     <div className={`navigation ${lightnavigation}`} onClick={() => setSelectPage('calender')}>
                         <CalendarTwoTone className={navShrink ? 'navigationCenteredItem' : 'navigationItem'} twoToneColor={selectPage === 'calender' ? '#4e8df5' : "#3d3d3d"} style={{ fontSize: 18 }} />
-                        {!navShrink && <span className='navigationName navigationItem' style={selectPage === 'calender' ? { fontWeight: 500, color: "#4e8df5" } : {}}>Calender</span>}
+                        {!navShrink && <span className='navigationName navigationItem' style={selectPage === 'calender' ? { fontWeight: 500, color: "#4e8df5" } : {}}>Plan</span>}
                     </div>
                     <div className={`navigation ${lightnavigation}`} onClick={() => setSelectPage('tutorial')}>
                         <VideoCameraTwoTone className={navShrink ? 'navigationCenteredItem' : 'navigationItem'} twoToneColor={selectPage === 'tutorial' ? '#4e8df5' : "#3d3d3d"} style={{ fontSize: 18 }} />
@@ -93,12 +93,12 @@ export default function Index(props) {
                     >
                         <Avatar
                             size={{
-                                xs: 24,
-                                sm: 32,
-                                md: 40,
-                                lg: 64,
-                                xl: 80,
-                                xxl: 100,
+                                xs: 28,
+                                sm: 28,
+                                md: 36,
+                                lg: 50,
+                                xl: 54,
+                                xxl: 70,
                             }}
                             icon={<AntDesignOutlined />}
                         />

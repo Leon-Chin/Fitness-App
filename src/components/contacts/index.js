@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import { Avatar, Divider, List, Skeleton } from 'antd';
 
 export default function Index(props) {
     const { theme } = props
@@ -7,6 +8,9 @@ export default function Index(props) {
         <div className={`contacts ${contactsDashboardClassname}`}>
             <div className='header' style={{ fontWeight: 500, fontsize: 24 }}>
                 Contacts
+            </div>
+            <div className='contactlist' style={{ hight: '80%', width: "100%" }}>
+
             </div>
         </div>
     )

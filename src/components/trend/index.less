@@ -10,19 +10,18 @@
 @darkBackgroundColor: #0c0f0e;
 @lightBackgroundColor: #ffffff;
 
-.statistic {
-    // background-color: white;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-content: space-between;
+.trend {
+    position: relative;
 
-    .cards {
-        border-radius: 16px;
-        background-color: @darkBlockBackgroundColor;
+    .cardTitle {
+        position: absolute;
+        top: 5%;
+        left: 5%;
+        font-weight: 700;
+        color: @darkTextColor;
     }
 
-    .cards-light {
-        background-color: @lightBlockBackgroundColor;
+    .cardTitle-light {
+        color: @lightTextColor;
     }
 }

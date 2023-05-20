@@ -1,36 +1,38 @@
-import React from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import './card.less'
-import { Space, Progress, ConfigProvider } from 'antd'
+import { Progress } from 'antd'
 export default function Card(props) {
-    const { cardInfo } = props
+    const { cardInfo, bigger } = props
+    const [diagramBigger, setDiagramBigger] = useState(false);
+    const cardRef = useRef(null);
+    useEffect(() => {
+        handleResize()
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, [])
+
+    const handleResize = () => {
+        if (cardRef.current) {
+            console.log("cardRef.current.offsetWidth", cardRef.current.offsetWidth);
+            setDiagramBigger(cardRef.current.offsetWidth > 145);
+        }
+    }
     const { title, number, percentage } = cardInfo
-    const data = {
-        borderRadius: 6,
-        colorPrimary: '#ffffff',
-    };
     return (
         <div className='card'>
             <div className='cardLeft'>
                 <div className='title'>{title}</div>
                 <div className='number'>{number}</div>
-                <div className='percentage'>{percentage} inc than tommorrow</div>
+                <div className='percentage'>{percentage} inc</div>
             </div>
-            <div className='cardRight'>
-                <ConfigProvider
-                    theme={{
-                        token: {
-                            colorPrimary: data.colorPrimary,
-                            borderRadius: data.borderRadius,
-                        },
-                    }}
-                >
-                    <Progress
-                        className='diagram'
-                        type="circle"
-                        percent={70}
-                        strokeWidth={8}
-                    />
-                </ConfigProvider>
+            <div ref={cardRef} className='cardRight'>
+                <Progress
+                    className='diagram'
+                    type="circle"
+                    percent={percentage}
+                    strokeWidth={10}
+                    size={diagramBigger ? 'default' : 'small'}
+                />
             </div>
         </div>
     )
