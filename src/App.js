@@ -17,7 +17,7 @@ import Trend from './components/trend'
 function App() {
   const [currenttheme, setCurrenttheme] = useState('light')
   const [page, setPage] = useState('home')
-  const [today, setToday] = useState(dayjs('2022-04-17'));
+  const [today, setToday] = useState(dayjs('2023-05-21'));
   const [userInfo, setUserInfo] = useState({
     name: 'leon666',
     preferTheme: 'dark',
