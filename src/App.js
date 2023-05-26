@@ -4,6 +4,7 @@ import SayHello from './components/sayHello'
 import { useEffect, useState } from 'react';
 import Contacts from './components/contacts'
 import Statistic from './components/statistic'
+import CompetitionCard from './components/competitionCard'
 import { ConfigProvider, theme } from 'antd';
 import dayjs from 'dayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers';
@@ -15,7 +16,7 @@ import Trend from './components/trend'
 
 
 function App() {
-  const [currenttheme, setCurrenttheme] = useState('light')
+  const [currenttheme, setCurrenttheme] = useState('dark')
   const [page, setPage] = useState('home')
   const [today, setToday] = useState(dayjs('2023-05-21'));
   const [userInfo, setUserInfo] = useState({
@@ -36,8 +37,6 @@ function App() {
   }, [])
   const lightAppClassname = currenttheme === 'light' ? 'App-light' : ''
   const lightDashboardClassname = currenttheme === 'light' ? 'dashboard-light' : ''
-  const model1DashboardClassname = currenttheme === 'light' ? 'model1-light' : ''
-
   const contendBoxRightDashboardClassname = currenttheme === 'light' ? 'contendBox-right-light' : ''
 
 
@@ -62,7 +61,7 @@ function App() {
                     <Statistic theme={currenttheme} />
                   </div>
                   <div className='contendBox-left-subBottom'>
-                    <div className={`model1 ${model1DashboardClassname}`}></div>
+                    <CompetitionCard theme={currenttheme} />
                     <Trend theme={currenttheme} />
                   </div>
                 </div>

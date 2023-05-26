@@ -92,14 +92,18 @@
                     .contacts {
                         width: 33%;
                         height: 100%;
-                        background-color: @darkBlockBackgroundColor;
+                        // background-color: @darkBlockBackgroundColor;
                         position: absolute;
                         left: 0%;
                         border-radius: 16px;
                     }
 
                     .contacts-light {
-                        background-color: @lightBlockBackgroundColor;
+
+                        // background-color: @lightBlockBackgroundColor;
+                        .ant-card-body {
+                            background-color: #fff;
+                        }
                     }
 
                     .statistic {
@@ -120,17 +124,25 @@
                     right: 0%;
                     border-radius: 16px;
 
-                    .model1 {
+                    .competition {
                         width: 33%;
                         height: 100%;
-                        background-color: @darkBlockBackgroundColor;
+                        // background-color: @darkBlockBackgroundColor;
                         position: absolute;
                         left: 0%;
                         border-radius: 16px;
+
+                        .ant-list-item {
+                            background-color: @darkBlockBackgroundColor;
+                        }
                     }
 
-                    .model1-light {
-                        background-color: @lightBlockBackgroundColor;
+                    .competition-light {
+
+                        // background-color: @lightBlockBackgroundColor;
+                        .ant-list-item {
+                            background-color: #fff;
+                        }
                     }
 
                     .trend {

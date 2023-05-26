@@ -80,7 +80,7 @@ export default function Index(props) {
                     <Popover
                         content={
                             <div>
-                                Light mode <Switch onChange={(checked) => setCurrenttheme(checked ? 'dark' : 'light')}></Switch>
+                                Light mode <Switch onChange={(checked) => setCurrenttheme(checked ? 'light' : 'dark')}></Switch>
                                 <br /><a onClick={hide}>Close</a>
                             </div>
                         }
