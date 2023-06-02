@@ -2,7 +2,16 @@ import { Schema, model } from "mongoose"
 const UserSchema = new Schema({
     avator: {
         type: String,
-        
+    },
+    personalStatus: {
+        type: String,
+        default: ''
+    },
+    gender: {
+        type: String,
+    },
+    birthday: {
+        type: String,
     },
     name: {
         type: String,
@@ -31,7 +40,6 @@ const UserSchema = new Schema({
     },
     password: {
         type: String,
-        required: true
     },
     contactsUsers: {
         type: [String],
@@ -42,6 +50,10 @@ const UserSchema = new Schema({
     favoriteBlogs: {
         type: [String],
     },
+    fromGoogle: {
+        type: Boolean,
+        default: false
+    }
 }, { timestamps: true })
 
 const UserModel = model("users", UserSchema)

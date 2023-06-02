@@ -28,6 +28,4 @@ router.put('/favorite/:blogID', verifyToken, favoriteBlog)
 // dislike the blog
 router.put('/dislike/:blogID', verifyToken, dislikeBlog)
 
-
-
 export default router
