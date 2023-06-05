@@ -11,8 +11,12 @@ export const signup = async (req, res, next) => {
         const hash = bcrypt.hashSync(reqUser.password, salt)
         const CryptUser = { ...reqUser, password: hash }
         const newUser = new User(CryptUser)
+        console.log(newUser._id);
+        const token = jwt.sign({ id: newUser._id }, process.env.JWT)
         const user = await newUser.save()
-        res.status(200).send(user)
+        res.cookie("access_token", token, {
+            httpOnly: true
+        }).status(200).json(user._doc)
     } catch (err) {
         next(err)
     }
@@ -28,7 +32,7 @@ export const signin = async (req, res, next) => {
                 .cookie("access_token", token, {
                     httpOnly: true
                 })
-                .status(200).json(user)
+                .status(200).json(user._doc)
         }
         const isVerified = await bcrypt.compare(password, user.password)
         const verifyProcess = async (isVerified) => {
@@ -45,11 +49,10 @@ export const googleAuth = async (req, res, next) => {
         const user = await User.findOne({ email: req.body.email })
         if (user) {
             const token = jwt.sign({ id: user._id }, process.env.JWT)
-            console.log(user);
             res.cookie("access_token", token, {
                 httpOnly: true
             })
-                .status(200).json(user._doc)
+                .status(200).json(user)
         } else {
             const newUser = new User({
                 ...req.body,
