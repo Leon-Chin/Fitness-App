@@ -15,7 +15,7 @@ export const signup = async (req, res, next) => {
         console.log(newUser._id);
         const token = jwt.sign({ id: newUser._id }, process.env.JWT)
         const user = await newUser.save()
-        res.set({ 'Access-Control-Allow-Origin': 'http://127.0.0.1:3000' })
+        res.set({ 'Access-Control-Allow-Origin': 'http://localhost:3000' })
             .cookie("access_token", token, {
                 httpOnly: true
             }).status(200).json(user._doc)
@@ -33,7 +33,12 @@ export const signin = async (req, res, next) => {
         const handleSendAfterSuccess = () => {
             const token = jwt.sign({ id: user._id }, process.env.JWT)
             res
-                .set({ 'Access-Control-Allow-Origin': 'http://127.0.0.1:3000' })
+                .set({
+                    'Access-Control-Allow-Origin': 'http://localhost:3000',
+                    "Content-Type": "application/json;charset=utf-8",
+                    "Access-Control-Allow-Headers": "X-Requested-With, Content-Type, Access-Token",
+                    "Access-Control-Allow-Credentials": true
+                })
                 .cookie("access_token", token, {
                     httpOnly: true
                 })
@@ -57,7 +62,7 @@ export const googleAuth = async (req, res, next) => {
         if (user) {
             const token = jwt.sign({ id: user._id }, process.env.JWT)
             console.log(res.header);
-            res.set({ 'Access-Control-Allow-Origin': 'http://127.0.0.1:3000' })
+            res.set({ 'Access-Control-Allow-Origin': 'http://localhost:3000' })
                 .cookie("access_token", token, {
                     httpOnly: true
                 })
@@ -70,7 +75,7 @@ export const googleAuth = async (req, res, next) => {
             const savedUser = await newUser.save()
             const token = jwt.sign({ id: savedUser._id }, process.env.JWT)
             res
-                .set({ 'Access-Control-Allow-Origin': 'http://127.0.0.1:3000' })
+                .set({ 'Access-Control-Allow-Origin': 'http://localhost:3000' })
                 .cookie("access_token", token, {
                     httpOnly: true
                 })

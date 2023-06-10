@@ -6,10 +6,16 @@ const router = express.Router()
 
 // update user
 // router.put('/:id', updateUser)
+router.options('/:id', function (req, res) {
+    res.sendStatus(200);
+});
 router.put('/:id', verifyToken, updateUser)
 
 // delete user
 // router.delete('/:id', deleteUser)
+router.options('/signup', function (req, res) {
+    res.sendStatus(200);
+});
 router.delete('/:id', verifyToken, deleteUser)
 
 // get a user

@@ -8,13 +8,13 @@ import blogRoutes from './routes/blogs.js'
 import commentRoutes from './routes/comments.js'
 import authRoutes from './routes/auth.js'
 import cookieParser from 'cookie-parser'
-import cors from 'cors'
+// import cors from 'cors'
 dotenv.config()
-const corsOptions = {
-    origin: 'http://localhost:3000',
-    credentials: true,
-    optionSuccessStatus: 200
-}
+// const corsOptions = {
+//     origin: 'http://localhost:3000',
+//     credentials: true,
+//     optionSuccessStatus: 200
+// }
 
 const connect = () => {
     mongoose.connect(process.env.MONGO).then(() => {
@@ -23,10 +23,17 @@ const connect = () => {
         throw err
     })
 }
+app.use(function (req, res, next) {
+    res.header('Access-Control-Allow-Origin', 'http://localhost:3000');
+    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+    res.header('Access-Control-Allow-Credentials', 'true');
+    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+    next();
+});
 app.use(json())
 app.use(cookieParser())
 
-app.use(cors(corsOptions))
+// app.use(cors(corsOptions))
 app.use('/api/auth', authRoutes)
 app.use('/api/users', userRoutes)
 app.use('/api/blogs', blogRoutes)

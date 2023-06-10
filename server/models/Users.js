@@ -10,6 +10,9 @@ const UserSchema = new Schema({
     gender: {
         type: String,
     },
+    age: {
+        type: Number,
+    },
     birthday: {
         type: String,
     },
