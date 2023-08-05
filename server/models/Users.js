@@ -53,9 +53,17 @@ const UserSchema = new Schema({
     favoriteBlogs: {
         type: [String],
     },
-    fromGoogle: {
-        type: Boolean,
-        default: false
+    competitions: {
+        type: [String],
+        default: []
+    },
+    tutorialLibrary: {
+        type: [String],
+        default: []
+    },
+    medals: {
+        type: [String],
+        default: []
     }
 }, { timestamps: true })
 

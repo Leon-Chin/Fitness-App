@@ -60,7 +60,7 @@ export const getBlog = async (req, res, next) => {
 
 export const random = async (req, res, next) => {
     try {
-        const blogs = await Blog.aggregate([{ $sample: { size: 1 } }])
+        const blogs = await Blog.aggregate([{ $sample: { size: 100 } }])
         res.status(200).json(blogs)
     } catch (err) {
         next(err)
@@ -101,7 +101,14 @@ export const tags = async (req, res, next) => {
 export const search = async (req, res, next) => {
     const query = req.query.params
     try {
-        const blogs = await Blog.find({ title: { $regex: query, $options: 'i' } }).limit(40)//add more features
+        // const blogs = await Blog.find({ title: { $regex: query, $options: 'i' } }).limit(40)//add more features
+        const blogs = await Blog.find({
+            $or: [
+                { title: { $regex: query, $options: 'i' } },
+                { content: { $regex: query, $options: 'i' } },
+                { tags: { $regex: query, $options: 'i' } }
+            ]
+        }).limit(40)//add more features
         res.status(200).json(blogs)
     } catch (err) {
         next(err)
@@ -111,7 +118,6 @@ export const search = async (req, res, next) => {
 export const getMyBlog = async (req, res, next) => {
     try {
         const userID = req.user.id
-
         const userBlogs = await Blog.find({ userID })
         res.status(200).json(userBlogs)
     } catch (err) {

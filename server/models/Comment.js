@@ -12,9 +12,9 @@ const CommentSchema = new Schema({
         type: String,
         required: true
     },
-    likeNum: {
-        type: Number,
-        default: 0
+    likedUsers: {
+        type: [String],
+        default: []
     },
 }, { timestamps: true })
 
